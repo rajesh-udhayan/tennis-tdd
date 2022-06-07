@@ -12,6 +12,9 @@ class TennisGame {
         if (playerTwoScore >= 4 && playerTwoScore >= playerOneScore+2){
             return "Player2 wins"
         }
+        if (playerOneScore >= 3 && playerOneScore == playerTwoScore){
+            return "Deuce"
+        }
         return "${translateScore(playerOneScore)}|${translateScore(playerTwoScore)}"
     }
 

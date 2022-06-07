@@ -76,4 +76,17 @@ class TennisGameTest {
 
         assertThat(game.getScore()).isEqualTo("Player2 wins")
     }
+
+    @Test
+    fun `should return deuce when both players are 40 or more than 40`(){
+        for (i in 1..4){
+            game.playerOneScores()
+        }
+
+        for (i in 1..4){
+            game.playerTwoScores()
+        }
+
+        assertThat(game.getScore()).isEqualTo("Deuce")
+    }
 }
