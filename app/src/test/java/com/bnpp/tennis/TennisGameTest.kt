@@ -81,6 +81,13 @@ class TennisGameTest {
         assertThat(game.getScore()).isEqualTo("Deuce")
     }
 
+    @Test
+    fun `should return player 2 advantage when player two scores one point after deuce`(){
+        generateScore(4,5)
+
+        assertThat(game.getScore()).isEqualTo("Advantage Player2")
+    }
+
     fun generateScore(playerOnePoints: Int = 0, playerTwoPoints: Int = 0){
         for (i in 1..playerOnePoints){
             game.playerOneScores()
