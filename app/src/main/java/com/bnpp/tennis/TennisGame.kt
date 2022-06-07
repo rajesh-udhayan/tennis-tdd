@@ -6,6 +6,9 @@ class TennisGame {
     private var playerTwoScore = 0
 
     fun getScore(): String {
+        if (playerOneScore >= 4 && playerOneScore >= playerTwoScore+2){
+            return "Player1 wins"
+        }
         return "${translateScore(playerOneScore)}|${translateScore(playerTwoScore)}"
     }
 
