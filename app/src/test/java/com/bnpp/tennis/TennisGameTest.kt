@@ -68,8 +68,15 @@ class TennisGameTest {
     }
 
     @Test
-    fun `should return deuce when both players are 40 or more than 40`(){
+    fun `should return deuce when both players have equal but more than 40`(){
         generateScore(4,4)
+
+        assertThat(game.getScore()).isEqualTo("Deuce")
+    }
+
+    @Test
+    fun `should return deuce when both players are 40`(){
+        generateScore(3,3)
 
         assertThat(game.getScore()).isEqualTo("Deuce")
     }
