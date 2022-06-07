@@ -63,8 +63,17 @@ class TennisGameTest {
         game.playerOneScores()
         game.playerOneScores()
         game.playerOneScores()
-        game.playerOneScores()
 
         assertThat(game.getScore()).isEqualTo("Player1 wins")
+    }
+
+    @Test
+    fun `should return Player2 wins when player two scores more than 40`(){
+        game.playerTwoScores()
+        game.playerTwoScores()
+        game.playerTwoScores()
+        game.playerTwoScores()
+
+        assertThat(game.getScore()).isEqualTo("Player2 wins")
     }
 }
