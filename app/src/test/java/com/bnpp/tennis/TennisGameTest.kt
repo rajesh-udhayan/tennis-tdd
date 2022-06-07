@@ -11,4 +11,13 @@ class TennisGameTest {
 
         assertThat(game.getScore()).isEqualTo("0|0")
     }
+
+    @Test
+    fun `should return 1 , 0 when player one scores`(){
+        val game = TennisGame()
+
+        game.playerOneScores()
+
+        assertThat(game.getScore()).isEqualTo("1|0")
+    }
 }
