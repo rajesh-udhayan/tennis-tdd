@@ -6,14 +6,23 @@ class TennisGame {
     private var playerTwoScore = 0
 
     fun getScore(): String {
-        return "$playerOneScore|$playerTwoScore"
+        return "${translateScore(playerOneScore)}|${translateScore(playerTwoScore)}"
     }
 
     fun playerOneScores() {
-        playerOneScore += 15
+        playerOneScore++
     }
 
     fun playerTwoScores() {
-        playerTwoScore += 15
+        playerTwoScore++
+    }
+
+    fun translateScore(score: Int) : String {
+        when(score) {
+            0 -> return "0"
+            1 -> return "15"
+            2 -> return "30"
+        }
+        throw IllegalArgumentException("Invalid score : $score")
     }
 }
