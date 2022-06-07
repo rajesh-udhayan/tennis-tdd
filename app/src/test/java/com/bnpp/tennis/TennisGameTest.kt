@@ -47,4 +47,13 @@ class TennisGameTest {
 
         assertThat(game.getScore()).isEqualTo("30|0")
     }
+
+    @Test
+    fun `should return 0 , 40 when player two scores three times`(){
+        game.playerTwoScores()
+        game.playerTwoScores()
+        game.playerTwoScores()
+
+        assertThat(game.getScore()).isEqualTo("0|40")
+    }
 }
