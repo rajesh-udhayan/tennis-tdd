@@ -26,10 +26,18 @@ class TennisGameTest {
     }
 
     @Test
+    fun `should return 0 , 15 when player two scores`(){
+        game.playerTwoScores()
+
+        assertThat(game.getScore()).isEqualTo("0|15")
+    }
+
+    @Test
     fun `should return 15 , 15 when both player scores`(){
         game.playerOneScores()
         game.playerTwoScores()
 
         assertThat(game.getScore()).isEqualTo("15|15")
     }
+
 }
