@@ -2,8 +2,8 @@ package com.bnpp.tennis
 
 class TennisGame {
 
-    var playerOneScore = 0
-    var playerTwoScore = 0
+    private var playerOneScore = 0
+    private var playerTwoScore = 0
 
     fun getScore(): String {
         return "$playerOneScore|$playerTwoScore"
