@@ -71,4 +71,12 @@ class TennisViewModelTest {
 
         verify { gameSpy.getPlayerTwoPoints() }
     }
+
+    @Test
+    fun `should return player points as 0 when new game started`(){
+        tennisViewModel.newGame()
+
+        assertThat(tennisViewModel.getPlayer1Point().getOrAwaitValue()).isEqualTo("0")
+        assertThat(tennisViewModel.getPlayer2Point().getOrAwaitValue()).isEqualTo("0")
+    }
 }
