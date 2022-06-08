@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class GameActivity : ComponentActivity() {
 
-private val viewModel by viewModels<TennisViewModel>()
+    private val viewModel by viewModels<TennisViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,12 +66,12 @@ fun ScoreView(viewModel: TennisViewModel) {
             .fillMaxHeight(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
-        ){
+        ) {
             Column(
                 modifier = Modifier
                     .padding(16.dp),
@@ -93,16 +93,16 @@ fun ScoreView(viewModel: TennisViewModel) {
                         Text(
                             modifier = Modifier
                                 .testTag("player1Score"),
-                            text = player1Point, style = Typography().h1)
+                            text = player1Point, style = Typography().h1
+                        )
                     }
                 }
                 Button(
-                    modifier = Modifier.
-                    testTag("player1AddButton"),
+                    modifier = Modifier.testTag("player1AddButton"),
                     enabled = !hasWinner,
                     onClick = {
                         viewModel.addPlayer1Point()
-                }) {
+                    }) {
                     Text(text = "Add point")
                 }
             }
@@ -125,29 +125,29 @@ fun ScoreView(viewModel: TennisViewModel) {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            modifier = Modifier.
-                            testTag("player2Score"), text = player2Point, style = Typography().h1)
+                            modifier = Modifier.testTag("player2Score"),
+                            text = player2Point,
+                            style = Typography().h1
+                        )
                     }
                 }
                 Button(
-                    modifier = Modifier.
-                    testTag("player2AddButton"),
+                    modifier = Modifier.testTag("player2AddButton"),
                     enabled = !hasWinner,
                     onClick = {
                         viewModel.addPlayer2Point()
-                }) {
+                    }) {
                     Text(text = "Add point")
                 }
             }
         }
-            Text(
-                modifier = Modifier.testTag("scoreText"),
-                text = "Result: $score", style = Typography().h6,
-            )
-        if (hasWinner){
+        Text(
+            modifier = Modifier.testTag("scoreText"),
+            text = "Result: $score", style = Typography().h6,
+        )
+        if (hasWinner) {
             Button(
-                modifier = Modifier.
-                testTag("newGame"),
+                modifier = Modifier.testTag("newGame"),
                 onClick = {
                     viewModel.newGame()
                 }) {
@@ -159,7 +159,7 @@ fun ScoreView(viewModel: TennisViewModel) {
 
 @Preview
 @Composable
-fun Preview(){
+fun Preview() {
     TennisTheme {
         Surface(color = MaterialTheme.colors.background) {
             ScoreView(TennisViewModel(TennisGame()))

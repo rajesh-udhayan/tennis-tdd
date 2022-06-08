@@ -61,7 +61,7 @@ class TennisMainViewTest {
 
     @Test
     fun shouldDisplayScoreTest() {
-        with(composeTestRule){
+        with(composeTestRule) {
             val score = onNodeWithTag("scoreText")
 
             score.assertIsDisplayed()
@@ -69,8 +69,8 @@ class TennisMainViewTest {
     }
 
     @Test
-    fun shouldDisplayPlayer1PointWhenScored(){
-        with(composeTestRule){
+    fun shouldDisplayPlayer1PointWhenScored() {
+        with(composeTestRule) {
             val addButton = onNodeWithTag("player1AddButton")
             val player1Score = onNodeWithTag("player1Score")
 
@@ -80,8 +80,8 @@ class TennisMainViewTest {
     }
 
     @Test
-    fun shouldDisplayPlayer2PointWhenScored(){
-        with(composeTestRule){
+    fun shouldDisplayPlayer2PointWhenScored() {
+        with(composeTestRule) {
             val addButton = onNodeWithTag("player2AddButton")
             val player2Score = onNodeWithTag("player2Score")
 
@@ -91,8 +91,8 @@ class TennisMainViewTest {
     }
 
     @Test
-    fun shouldDisplayResultTextWhenNewGameStarted(){
-        with(composeTestRule){
+    fun shouldDisplayResultTextWhenNewGameStarted() {
+        with(composeTestRule) {
             val score = onNodeWithTag("scoreText")
 
             score.assertTextEquals("Result: 0|0")
@@ -100,8 +100,8 @@ class TennisMainViewTest {
     }
 
     @Test
-    fun shouldDisableAddPointsButtonAfterAnyoneWins(){
-        with(composeTestRule){
+    fun shouldDisableAddPointsButtonAfterAnyoneWins() {
+        with(composeTestRule) {
             val addPoint1 = onNodeWithTag("player1AddButton")
             val addPoint2 = onNodeWithTag("player2AddButton")
 
@@ -116,8 +116,8 @@ class TennisMainViewTest {
     }
 
     @Test
-    fun shouldDisplayNewGameButtonAfterAnyoneWins(){
-        with(composeTestRule){
+    fun shouldDisplayNewGameButtonAfterAnyoneWins() {
+        with(composeTestRule) {
             val addPoint1 = onNodeWithTag("player1AddButton")
             val newGame = onNodeWithTag("newGame")
 
@@ -132,8 +132,8 @@ class TennisMainViewTest {
     }
 
     @Test
-    fun shouldEnableAddPointButtonsAndHideNewGameButtonWhenNewGameStarted(){
-        with(composeTestRule){
+    fun shouldEnableAddPointButtonsAndHideNewGameButtonWhenNewGameStarted() {
+        with(composeTestRule) {
             val addPoint1 = onNodeWithTag("player1AddButton")
             val addPoint2 = onNodeWithTag("player2AddButton")
             val newGame = onNodeWithTag("newGame")
