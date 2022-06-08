@@ -79,4 +79,14 @@ class TennisMainViewTest {
         }
     }
 
+    @Test
+    fun shouldDisplayPlayer2PointWhenScored(){
+        with(composeTestRule){
+            val addButton = onNodeWithTag("player2AddButton")
+            val player2Score = onNodeWithTag("player2Score")
+
+            addButton.performClick()
+            player2Score.assertTextEquals("15")
+        }
+    }
 }

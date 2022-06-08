@@ -54,6 +54,7 @@ fun TennisMainView(viewModel: TennisViewModel) {
 @Composable
 fun ScoreView(viewModel: TennisViewModel) {
     val player1Point: String by viewModel.getPlayer1Point().observeAsState(String())
+    val player2Point: String by viewModel.getPlayer2Point().observeAsState(String())
 
     Column(
         modifier = Modifier
@@ -121,14 +122,14 @@ fun ScoreView(viewModel: TennisViewModel) {
                     ) {
                         Text(
                             modifier = Modifier.
-                            testTag("player2Score"), text = "0", style = Typography().h1)
+                            testTag("player2Score"), text = player2Point, style = Typography().h1)
                     }
                 }
                 Button(
                     modifier = Modifier.
                     testTag("player2AddButton"),
                     onClick = {
-
+                        viewModel.addPlayer2Point()
                 }) {
                     Text(text = "Add point")
                 }
