@@ -44,4 +44,19 @@ class TennisMainViewTest {
         }
     }
 
+    @Test
+    fun shouldDisplayPlayer2ScoreView() {
+        with(composeTestRule) {
+            val title = onNodeWithText("Player 2")
+            val card = onNodeWithTag("player2Card")
+            val player2Score = onNodeWithTag("player2Score")
+            val addButton = onNodeWithTag("player2AddButton")
+
+            title.assertIsDisplayed()
+            card.assertIsDisplayed()
+            player2Score.assertIsDisplayed()
+            addButton.assertIsDisplayed()
+        }
+    }
+
 }

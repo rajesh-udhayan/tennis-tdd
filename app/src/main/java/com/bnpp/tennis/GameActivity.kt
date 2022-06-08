@@ -98,6 +98,38 @@ fun ScoreView() {
                     Text(text = "Add point")
                 }
             }
+            Column(
+                modifier = Modifier
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(text = "Player 2", style = Typography().h6)
+                Card(
+                    shape = RoundedCornerShape(8.dp),
+                    backgroundColor = Color.LightGray,
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .width(120.dp)
+                        .testTag("player2Card"),
+                    elevation = 10.dp
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            modifier = Modifier.
+                            testTag("player2Score"), text = "0", style = Typography().h1)
+                    }
+                }
+                Button(
+                    modifier = Modifier.
+                    testTag("player2AddButton"),
+                    onClick = {
+
+                }) {
+                    Text(text = "Add point")
+                }
+            }
         }
     }
 }
