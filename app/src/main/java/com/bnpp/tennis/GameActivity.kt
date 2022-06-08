@@ -4,19 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,7 +29,7 @@ private val viewModel by viewModels<TennisViewModel>()
         setContent {
             TennisTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    TennisMainView()
+                    TennisMainView(viewModel)
                 }
             }
         }
@@ -39,7 +37,7 @@ private val viewModel by viewModels<TennisViewModel>()
 }
 
 @Composable
-fun TennisMainView() {
+fun TennisMainView(viewModel: TennisViewModel) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -49,12 +47,14 @@ fun TennisMainView() {
             )
         }
     ) {
-        ScoreView()
+        ScoreView(viewModel)
     }
 }
 
 @Composable
-fun ScoreView() {
+fun ScoreView(viewModel: TennisViewModel) {
+    val player1Point: String by viewModel.getPlayer1Point().observeAsState(String())
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -89,14 +89,14 @@ fun ScoreView() {
                         Text(
                             modifier = Modifier
                                 .testTag("player1Score"),
-                            text = "0", style = Typography().h1)
+                            text = player1Point, style = Typography().h1)
                     }
                 }
                 Button(
                     modifier = Modifier.
                     testTag("player1AddButton"),
                     onClick = {
-
+                        viewModel.addPlayer1Point()
                 }) {
                     Text(text = "Add point")
                 }
@@ -146,7 +146,7 @@ fun ScoreView() {
 fun Preview(){
     TennisTheme {
         Surface(color = MaterialTheme.colors.background) {
-            ScoreView()
+            ScoreView(TennisViewModel(TennisGame()))
         }
     }
 }

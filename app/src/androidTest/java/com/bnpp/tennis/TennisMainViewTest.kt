@@ -1,10 +1,7 @@
 package com.bnpp.tennis
 
-import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.onNodeWithText
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -68,6 +65,17 @@ class TennisMainViewTest {
             val score = onNodeWithTag("scoreText")
 
             score.assertIsDisplayed()
+        }
+    }
+
+    @Test
+    fun shouldDisplayPlayer1PointWhenScored(){
+        with(composeTestRule){
+            val addButton = onNodeWithTag("player1AddButton")
+            val player1Score = onNodeWithTag("player1Score")
+
+            addButton.performClick()
+            player1Score.assertTextEquals("15")
         }
     }
 
