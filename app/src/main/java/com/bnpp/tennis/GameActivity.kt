@@ -57,6 +57,7 @@ fun ScoreView(viewModel: TennisViewModel) {
     val player1Point: String by viewModel.getPlayer1Point().observeAsState(String())
     val player2Point: String by viewModel.getPlayer2Point().observeAsState(String())
     val score: String by viewModel.getScore().observeAsState(String())
+    val hasWinner: Boolean by viewModel.hasWinner().observeAsState(false)
 
     Column(
         modifier = Modifier
@@ -98,6 +99,7 @@ fun ScoreView(viewModel: TennisViewModel) {
                 Button(
                     modifier = Modifier.
                     testTag("player1AddButton"),
+                    enabled = !hasWinner,
                     onClick = {
                         viewModel.addPlayer1Point()
                 }) {
@@ -130,6 +132,7 @@ fun ScoreView(viewModel: TennisViewModel) {
                 Button(
                     modifier = Modifier.
                     testTag("player2AddButton"),
+                    enabled = !hasWinner,
                     onClick = {
                         viewModel.addPlayer2Point()
                 }) {

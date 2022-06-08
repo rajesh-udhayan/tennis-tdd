@@ -98,4 +98,20 @@ class TennisMainViewTest {
             score.assertTextEquals("Result: 0|0")
         }
     }
+
+    @Test
+    fun shouldDisableAddPointsButtonAfterAnyoneWins(){
+        with(composeTestRule){
+            val addPoint1 = onNodeWithTag("player1AddButton")
+            val addPoint2 = onNodeWithTag("player2AddButton")
+
+            addPoint1.performClick()
+            addPoint1.performClick()
+            addPoint1.performClick()
+            addPoint1.performClick()
+
+            addPoint1.assertIsNotEnabled()
+            addPoint2.assertIsNotEnabled()
+        }
+    }
 }
