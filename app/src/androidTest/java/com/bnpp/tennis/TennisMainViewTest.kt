@@ -30,31 +30,18 @@ class TennisMainViewTest {
     }
 
     @Test
-    fun shouldDisplayPlayer1Title() {
+    fun shouldDisplayPlayer1ScoreView() {
         with(composeTestRule) {
             val title = onNodeWithText("Player 1")
-
-            title.assertIsDisplayed()
-        }
-    }
-
-    @Test
-    fun shouldDisplayPlayer1ScoreCard() {
-        with(composeTestRule) {
             val card = onNodeWithTag("player1Card")
             val player1Score = onNodeWithTag("player1Score")
-
-            card.assertIsDisplayed()
-            player1Score.assertIsDisplayed()
-        }
-    }
-
-    @Test
-    fun shouldDisplayPlayer1AddPointButton() {
-        with(composeTestRule) {
             val addButton = onNodeWithTag("player1AddButton")
 
+            title.assertIsDisplayed()
+            card.assertIsDisplayed()
+            player1Score.assertIsDisplayed()
             addButton.assertIsDisplayed()
         }
     }
+
 }
