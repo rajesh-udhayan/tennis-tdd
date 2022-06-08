@@ -27,4 +27,13 @@ class TennisMainViewTest {
             title.assertIsDisplayed()
         }
     }
+
+    @Test
+    fun shouldDisplayPlayer1Title() {
+        with(composeTestRule) {
+            val title = onNodeWithText("Player 1")
+
+            title.assertIsDisplayed()
+        }
+    }
 }
