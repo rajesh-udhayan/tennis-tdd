@@ -17,7 +17,7 @@ class TennisMainViewTest {
     @Before
     fun setUp() {
         composeTestRule.setContent {
-            TennisMainView(TennisViewModel(TennisGame()))
+            TennisMainView()
         }
     }
 
