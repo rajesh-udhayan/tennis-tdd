@@ -26,6 +26,7 @@ private val viewModel by viewModels<TennisViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.newGame()
         setContent {
             TennisTheme {
                 Surface(color = MaterialTheme.colors.background) {
@@ -55,6 +56,7 @@ fun TennisMainView(viewModel: TennisViewModel) {
 fun ScoreView(viewModel: TennisViewModel) {
     val player1Point: String by viewModel.getPlayer1Point().observeAsState(String())
     val player2Point: String by viewModel.getPlayer2Point().observeAsState(String())
+    val score: String by viewModel.getScore().observeAsState(String())
 
     Column(
         modifier = Modifier
@@ -135,10 +137,10 @@ fun ScoreView(viewModel: TennisViewModel) {
                 }
             }
         }
-        Text(
-            modifier = Modifier.testTag("scoreText"),
-            text = "Score: ", style = Typography().h6
-        )
+            Text(
+                modifier = Modifier.testTag("scoreText"),
+                text = "Result: $score", style = Typography().h6,
+            )
     }
 }
 

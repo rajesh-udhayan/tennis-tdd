@@ -89,4 +89,13 @@ class TennisMainViewTest {
             player2Score.assertTextEquals("15")
         }
     }
+
+    @Test
+    fun shouldDisplayResultTextWhenNewGameStarted(){
+        with(composeTestRule){
+            val score = onNodeWithTag("scoreText")
+
+            score.assertTextEquals("Result: 0|0")
+        }
+    }
 }
