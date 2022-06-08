@@ -9,8 +9,17 @@ import javax.inject.Inject
 @HiltViewModel
 class TennisViewModel @Inject constructor(val tennisGame: TennisGame) : ViewModel() {
 
+    private val gameScore: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
+    fun getScore(): LiveData<String> {
+        return gameScore
+    }
+
     fun newGame() {
         tennisGame.newRound()
+        gameScore.value = tennisGame.getScore()
     }
 
 }
