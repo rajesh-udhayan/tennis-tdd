@@ -150,6 +150,20 @@ class TennisGameTest {
         assertThat(game.getPlayerTwoPoints()).isEqualTo("40")
     }
 
+    @Test
+    fun `should return true when a player scored 2 points more than other player `(){
+        generateScore(4,2)
+
+        assertThat(game.hasWinner()).isTrue()
+    }
+
+    @Test
+    fun `should return false when both players are less than or equal to 4`(){
+        generateScore(3,4)
+
+        assertThat(game.hasWinner()).isFalse()
+    }
+
     fun generateScore(playerOnePoints: Int = 0, playerTwoPoints: Int = 0){
         for (i in 1..playerOnePoints){
             game.playerOneScores()

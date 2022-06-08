@@ -31,6 +31,14 @@ class TennisGame @Inject constructor(){
         return "${translateScore(playerOneScore)}|${translateScore(playerTwoScore)}"
     }
 
+    fun hasWinner(): Boolean{
+        if (playerOneScore >= 4 && playerOneScore >= playerTwoScore+2
+            || playerTwoScore >= 4 && playerTwoScore >= playerOneScore+2){
+            return true
+        }
+        return false
+    }
+
     fun playerOneScores() {
         playerOneScore++
     }
