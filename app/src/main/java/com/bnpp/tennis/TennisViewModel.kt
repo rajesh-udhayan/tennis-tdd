@@ -7,7 +7,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class TennisViewModel @Inject constructor(val tennisGame: TennisGame): ViewModel() {
+class TennisViewModel @Inject constructor(val tennisGame: TennisGame) : ViewModel() {
 
+    fun newGame() {
+        tennisGame.newRound()
+    }
 
 }
