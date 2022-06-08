@@ -2,6 +2,7 @@ package com.bnpp.tennis
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import org.junit.Before
 import org.junit.Rule
@@ -34,6 +35,17 @@ class TennisMainViewTest {
             val title = onNodeWithText("Player 1")
 
             title.assertIsDisplayed()
+        }
+    }
+
+    @Test
+    fun shouldDisplayPlayer1ScoreCard() {
+        with(composeTestRule) {
+            val card = onNodeWithTag("player1Card")
+            val player1Score = onNodeWithTag("player1Score")
+
+            card.assertIsDisplayed()
+            player1Score.assertIsDisplayed()
         }
     }
 }
