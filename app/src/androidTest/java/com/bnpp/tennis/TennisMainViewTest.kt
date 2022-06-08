@@ -48,4 +48,13 @@ class TennisMainViewTest {
             player1Score.assertIsDisplayed()
         }
     }
+
+    @Test
+    fun shouldDisplayPlayer1AddPointButton() {
+        with(composeTestRule) {
+            val addButton = onNodeWithTag("player1AddButton")
+
+            addButton.assertIsDisplayed()
+        }
+    }
 }

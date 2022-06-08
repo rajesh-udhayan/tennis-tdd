@@ -89,6 +89,14 @@ fun ScoreView() {
                             text = "0", style = Typography().h1)
                     }
                 }
+                Button(
+                    modifier = Modifier.
+                    testTag("player1AddButton"),
+                    onClick = {
+
+                }) {
+                    Text(text = "Add point")
+                }
             }
         }
     }
