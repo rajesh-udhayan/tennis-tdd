@@ -64,4 +64,11 @@ class TennisViewModelTest {
 
         verify { gameSpy.getPlayerOnePoints() }
     }
+
+    @Test
+    fun `should invoke getPlayerTwoPoints when player 2 scores`(){
+        tennisViewModel.addPlayer2Point()
+
+        verify { gameSpy.getPlayerTwoPoints() }
+    }
 }

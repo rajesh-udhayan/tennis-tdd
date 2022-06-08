@@ -15,6 +15,9 @@ class TennisViewModel @Inject constructor(val tennisGame: TennisGame) : ViewMode
     private val player1Point: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
+    private val player2Point: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
 
     fun getScore(): LiveData<String> {
         return gameScore
@@ -22,6 +25,10 @@ class TennisViewModel @Inject constructor(val tennisGame: TennisGame) : ViewMode
 
     fun getPlayer1Point(): LiveData<String> {
         return player1Point
+    }
+
+    fun getPlayer2Point(): LiveData<String> {
+        return player2Point
     }
 
     fun newGame() {
@@ -39,5 +46,6 @@ class TennisViewModel @Inject constructor(val tennisGame: TennisGame) : ViewMode
     fun addPlayer2Point(){
         tennisGame.playerTwoScores()
         gameScore.value = tennisGame.getScore()
+        player2Point.value = tennisGame.getPlayerTwoPoints()
     }
 }
