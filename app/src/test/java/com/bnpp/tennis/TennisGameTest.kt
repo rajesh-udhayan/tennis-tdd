@@ -135,6 +135,21 @@ class TennisGameTest {
         assertThat(game.getPlayerOnePoints()).isEqualTo("40")
     }
 
+    @Test
+    fun `should return player2 score as 30 when player 2 score twice`(){
+        game.playerTwoScores()
+        game.playerTwoScores()
+
+        assertThat(game.getPlayerTwoPoints()).isEqualTo("30")
+    }
+
+    @Test
+    fun `should return player2 score as 40 when player 2 is in advantage`(){
+        generateScore(6,8)
+
+        assertThat(game.getPlayerTwoPoints()).isEqualTo("40")
+    }
+
     fun generateScore(playerOnePoints: Int = 0, playerTwoPoints: Int = 0){
         for (i in 1..playerOnePoints){
             game.playerOneScores()

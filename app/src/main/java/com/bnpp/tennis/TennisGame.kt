@@ -47,6 +47,14 @@ class TennisGame @Inject constructor(){
         }
     }
 
+    fun getPlayerTwoPoints(): String{
+        return if (playerTwoScore<= 3){
+            translateScore(playerTwoScore)
+        } else {
+            "40"
+        }
+    }
+
     fun translateScore(score: Int) : String {
         when(score) {
             0 -> return "0"
