@@ -79,4 +79,11 @@ class TennisViewModelTest {
         assertThat(tennisViewModel.getPlayer1Point().getOrAwaitValue()).isEqualTo("0")
         assertThat(tennisViewModel.getPlayer2Point().getOrAwaitValue()).isEqualTo("0")
     }
+
+    @Test
+    fun `should invoke has winner when add score called for any player`(){
+        tennisViewModel.addPlayer1Point()
+
+        verify { gameSpy.hasWinner() }
+    }
 }
