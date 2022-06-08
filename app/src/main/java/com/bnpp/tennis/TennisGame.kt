@@ -1,6 +1,8 @@
 package com.bnpp.tennis
 
-class TennisGame {
+import javax.inject.Inject
+
+class TennisGame @Inject constructor(){
 
     private var playerOneScore = 0
     private var playerTwoScore = 0
