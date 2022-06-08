@@ -59,4 +59,13 @@ class TennisMainViewTest {
         }
     }
 
+    @Test
+    fun shouldDisplayScoreTest() {
+        with(composeTestRule){
+            val score = onNodeWithTag("scoreText")
+
+            score.assertIsDisplayed()
+        }
+    }
+
 }

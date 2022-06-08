@@ -131,6 +131,10 @@ fun ScoreView() {
                 }
             }
         }
+        Text(
+            modifier = Modifier.testTag("scoreText"),
+            text = "Score: ", style = Typography().h6
+        )
     }
 }
 
