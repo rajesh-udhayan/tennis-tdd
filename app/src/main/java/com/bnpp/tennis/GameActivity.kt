@@ -144,6 +144,16 @@ fun ScoreView(viewModel: TennisViewModel) {
                 modifier = Modifier.testTag("scoreText"),
                 text = "Result: $score", style = Typography().h6,
             )
+        if (hasWinner){
+            Button(
+                modifier = Modifier.
+                testTag("newGame"),
+                onClick = {
+                    viewModel.newGame()
+                }) {
+                Text(text = "New Game")
+            }
+        }
     }
 }
 

@@ -114,4 +114,40 @@ class TennisMainViewTest {
             addPoint2.assertIsNotEnabled()
         }
     }
+
+    @Test
+    fun shouldDisplayNewGameButtonAfterAnyoneWins(){
+        with(composeTestRule){
+            val addPoint1 = onNodeWithTag("player1AddButton")
+            val newGame = onNodeWithTag("newGame")
+
+            addPoint1.performClick()
+            addPoint1.performClick()
+            addPoint1.performClick()
+            addPoint1.performClick()
+
+            newGame.assertIsDisplayed()
+            newGame.assertIsEnabled()
+        }
+    }
+
+    @Test
+    fun shouldEnableAddPointButtonsAndHideNewGameButtonWhenNewGameStarted(){
+        with(composeTestRule){
+            val addPoint1 = onNodeWithTag("player1AddButton")
+            val addPoint2 = onNodeWithTag("player2AddButton")
+            val newGame = onNodeWithTag("newGame")
+
+            addPoint1.performClick()
+            addPoint1.performClick()
+            addPoint1.performClick()
+            addPoint1.performClick()
+
+            newGame.performClick()
+
+            addPoint1.assertIsEnabled()
+            addPoint2.assertIsEnabled()
+            newGame.assertDoesNotExist()
+        }
+    }
 }
