@@ -109,6 +109,17 @@ class TennisGameTest {
         assertThat(game.getScore()).isEqualTo("Player1 wins")
     }
 
+    @Test
+    fun `should return score as 0 , 0 when new round started`(){
+        generateScore(2,3)
+
+        assertThat(game.getScore()).isEqualTo("30|40")
+
+        game.newRound()
+
+        assertThat(game.getScore()).isEqualTo("0|0")
+    }
+
     fun generateScore(playerOnePoints: Int = 0, playerTwoPoints: Int = 0){
         for (i in 1..playerOnePoints){
             game.playerOneScores()

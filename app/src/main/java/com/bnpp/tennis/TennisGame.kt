@@ -7,6 +7,11 @@ class TennisGame @Inject constructor(){
     private var playerOneScore = 0
     private var playerTwoScore = 0
 
+    fun newRound(){
+        playerOneScore = 0
+        playerTwoScore = 0
+    }
+
     fun getScore(): String {
         if (playerOneScore >= 4 && playerOneScore >= playerTwoScore+2){
             return "Player1 wins"
