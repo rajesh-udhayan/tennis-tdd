@@ -128,6 +128,13 @@ class TennisGameTest {
         assertThat(game.getPlayerOnePoints()).isEqualTo("30")
     }
 
+    @Test
+    fun `should return player1 score as 40 when player 1 and player 2 are in deuce`(){
+        generateScore(4,4)
+
+        assertThat(game.getPlayerOnePoints()).isEqualTo("40")
+    }
+
     fun generateScore(playerOnePoints: Int = 0, playerTwoPoints: Int = 0){
         for (i in 1..playerOnePoints){
             game.playerOneScores()
