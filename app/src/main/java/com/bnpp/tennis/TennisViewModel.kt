@@ -43,6 +43,7 @@ class TennisViewModel @Inject constructor(val tennisGame: TennisGame) : ViewMode
         gameScore.value = tennisGame.getScore()
         player1Point.value = tennisGame.getPlayerOnePoints()
         player2Point.value = tennisGame.getPlayerTwoPoints()
+        hasWinner.value = tennisGame.hasWinner()
     }
 
     fun addPlayer1Point(){

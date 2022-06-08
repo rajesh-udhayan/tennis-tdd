@@ -86,4 +86,15 @@ class TennisViewModelTest {
 
         verify { gameSpy.hasWinner() }
     }
+
+    @Test
+    fun `should return false for has winner when new game started`(){
+        tennisViewModel.addPlayer1Point()
+        tennisViewModel.addPlayer1Point()
+        tennisViewModel.addPlayer1Point()
+        tennisViewModel.addPlayer1Point()
+        tennisViewModel.newGame()
+
+        assertThat(tennisViewModel.hasWinner().getOrAwaitValue()).isFalse()
+    }
 }
