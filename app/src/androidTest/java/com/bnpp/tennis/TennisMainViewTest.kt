@@ -1,6 +1,7 @@
 package com.bnpp.tennis
 
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
@@ -41,6 +42,7 @@ class TennisMainViewTest {
             card.assertIsDisplayed()
             player1Score.assertIsDisplayed()
             addButton.assertIsDisplayed()
+            addButton.assertIsEnabled()
         }
     }
 
@@ -56,6 +58,7 @@ class TennisMainViewTest {
             card.assertIsDisplayed()
             player2Score.assertIsDisplayed()
             addButton.assertIsDisplayed()
+            addButton.assertIsEnabled()
         }
     }
 
