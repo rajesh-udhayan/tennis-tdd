@@ -57,4 +57,11 @@ class TennisViewModelTest {
 
         assertThat(score).isEqualTo("0|15")
     }
+
+    @Test
+    fun `should invoke getPlayerOnePoints when player 1 scores`(){
+        tennisViewModel.addPlayer1Point()
+
+        verify { gameSpy.getPlayerOnePoints() }
+    }
 }
