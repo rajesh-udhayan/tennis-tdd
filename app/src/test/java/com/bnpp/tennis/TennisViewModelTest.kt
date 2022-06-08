@@ -39,4 +39,13 @@ class TennisViewModelTest {
 
         assertThat(score).isEqualTo("0|0")
     }
+
+    @Test
+    fun `should return 15 , 0 as score when addPlayer1Point called`(){
+        tennisViewModel.newGame()
+        tennisViewModel.addPlayer1Point()
+        val score = tennisViewModel.getScore().getOrAwaitValue()
+
+        assertThat(score).isEqualTo("15|0")
+    }
 }
